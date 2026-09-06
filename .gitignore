@@ -1,4 +1,5 @@
 .venv
 frontend/
 main.py/
+.env
 
