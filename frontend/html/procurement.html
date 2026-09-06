@@ -1,0 +1,703 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="IS-Match Procurement Official Portal - Register procurement officer details and technical specifications to generate applicable Indian Standards and GeM tender schedules.">
+  <title>Procurement Official Portal — IS-Match</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+  <!-- Top Tricolor Accent Bar -->
+  <div class="top-tricolor-bar"></div>
+
+  <!-- Official Government of India Top Utility Bar -->
+  <div class="gov-top-bar">
+    <div class="gov-top-container">
+      <div class="gov-top-left">
+        <span class="gov-flag-icon">🇮🇳</span>
+        <span class="gov-title-hi">भारत सरकार</span>
+        <span class="gov-sep">|</span>
+        <span class="gov-title-en">GOVERNMENT OF INDIA</span>
+        <span class="gov-sep">|</span>
+        <span class="gov-ministry">Ministry of Consumer Affairs, Food & Public Distribution</span>
+      </div>
+      <div class="gov-top-right">
+        <a href="#mainProcurementForm" class="gov-util-link">Skip to Form</a>
+        <span class="gov-sep">|</span>
+        <button type="button" class="gov-util-btn" onclick="toggleScreenReader()" title="Screen Reader Access">
+          <i data-lucide="volume-2" style="width: 12px; height: 12px;"></i>
+          <span>Screen Reader</span>
+        </button>
+        <span class="gov-sep">|</span>
+        <div class="font-resizer-group">
+          <button type="button" class="font-resize-btn" onclick="adjustFontSize(-1)">A-</button>
+          <button type="button" class="font-resize-btn" onclick="adjustFontSize(0)">A</button>
+          <button type="button" class="font-resize-btn" onclick="adjustFontSize(1)">A+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand-section">
+        <a href="index.html"
+          style="text-decoration: none; display: flex; align-items: center; gap: 0.85rem; color: inherit;">
+          <!-- State Emblem of India (Ashoka Lion Capital with Satyameva Jayate) -->
+          <div class="national-emblem-wrap" title="State Emblem of India | भारत का राज्य प्रतीक">
+            <svg class="national-emblem-svg" viewBox="0 0 120 160" fill="currentColor"
+              xmlns="http://www.w3.org/2000/svg" aria-label="State Emblem of India">
+              <g class="emblem-lions">
+                <path
+                  d="M60 12 C55 12 51 16 51 21 C51 23 52 25 54 26 C51 28 48 31 48 35 C48 39 51 41 53 43 C50 45 47 49 47 54 C47 60 52 64 57 65 L57 68 L63 68 L63 65 C68 64 73 60 73 54 C73 49 70 45 67 43 C69 41 72 39 72 35 C72 31 69 28 66 26 C68 25 69 23 69 21 C69 16 65 12 60 12 Z"
+                  opacity="0.95" />
+                <path d="M57 32 C57 30 58 29 60 29 C62 29 63 30 63 32 L63 36 C63 37 62 38 60 38 C58 38 57 37 57 36 Z"
+                  fill="var(--bg-surface, #fff)" />
+                <path
+                  d="M35 26 C31 26 28 29 28 33 C28 35 29 37 30 38 C28 40 26 43 26 47 C26 51 29 54 31 56 C29 58 28 62 29 67 C30 72 35 75 40 76 L42 71 C38 70 34 67 33 63 C35 62 37 60 38 58 C37 56 36 53 36 50 C38 49 41 50 42 51 C41 47 41 44 43 41 C41 39 40 37 40 34 C43 33 45 33 46 35 C45 31 45 28 47 26 Z"
+                  opacity="0.9" />
+                <path
+                  d="M85 26 C89 26 92 29 92 33 C92 35 91 37 90 38 C92 40 94 43 94 47 C94 51 91 54 89 56 C91 58 92 62 91 67 C90 72 85 75 80 76 L78 71 C82 70 86 67 87 63 C85 62 83 60 82 58 C83 56 84 53 84 50 C82 49 79 50 78 51 C79 47 79 44 77 41 C79 39 80 37 80 34 C77 33 75 33 74 35 C75 31 75 28 73 26 Z"
+                  opacity="0.9" />
+                <path d="M44 68 L44 82 C44 85 47 87 50 87 L70 87 C73 87 76 85 76 82 L76 68 Z" />
+              </g>
+              <g class="emblem-abacus">
+                <rect x="16" y="89" width="88" height="6" rx="2" />
+                <circle cx="60" cy="107" r="11" stroke="currentColor" stroke-width="2.5" fill="none" />
+                <circle cx="60" cy="107" r="2.5" fill="currentColor" />
+                <line x1="60" y1="96" x2="60" y2="118" stroke="currentColor" stroke-width="1.2" />
+                <line x1="49" y1="107" x2="71" y2="107" stroke="currentColor" stroke-width="1.2" />
+                <line x1="52" y1="99" x2="68" y2="115" stroke="currentColor" stroke-width="1.2" />
+                <line x1="68" y1="99" x2="52" y2="115" stroke="currentColor" stroke-width="1.2" />
+                <path d="M28 103 C26 100 22 102 22 105 C22 110 27 111 32 111 L35 107 Z" opacity="0.85" />
+                <path d="M92 103 C94 100 98 102 98 105 C98 110 93 111 88 111 L85 107 Z" opacity="0.85" />
+                <rect x="12" y="119" width="96" height="5" rx="1.5" />
+              </g>
+              <path d="M22 124 C32 133 88 133 98 124 L94 131 C84 136 36 136 26 131 Z" opacity="0.85" />
+              <text x="60" y="152" font-family="'Noto Sans Devanagari', 'Mukta', 'Hind', sans-serif" font-size="10.5"
+                font-weight="900" text-anchor="middle" letter-spacing="1">सत्यमेव जयते</text>
+            </svg>
+          </div>
+          <div class="gov-emblem-text">
+            <div class="emblem-gov-title">भारत सरकार &bull; Government of India</div>
+            <div class="emblem-ministry-title">Ministry of Consumer Affairs, Food & Public Distribution</div>
+            <div class="emblem-dept-title">Bureau of Indian Standards (BIS) &bull; GeM e-Procurement</div>
+          </div>
+          <div class="header-v-divider"></div>
+          <div class="brand-text-block">
+            <div class="brand-name">IS-Match</div>
+            <span class="portal-category-badge">Officer Portal</span>
+          </div>
+        </a>
+      </div>
+
+      <div class="header-controls">
+        <!-- Home Tab -->
+        <a href="index.html" class="nav-tab-btn" title="Return to Home">
+          <i data-lucide="home" style="width: 15px; height: 15px;"></i>
+          <span>Home</span>
+        </a>
+
+        <!-- Language Selector -->
+        <div class="lang-dropdown-wrapper">
+          <i data-lucide="globe" style="width: 15px; height: 15px; color: var(--text-tertiary);"></i>
+          <select id="langSelect" class="lang-dropdown" aria-label="Select Input Language">
+            <option value="en">English</option>
+            <option value="hi">हिन्दी (Hindi)</option>
+            <option value="ta">தமிழ் (Tamil)</option>
+            <option value="te">తెలుగు (Telugu)</option>
+            <option value="mr">मराठी (Marathi)</option>
+            <option value="gu">ગુજરાતી (Gujarati)</option>
+          </select>
+        </div>
+
+        <!-- Theme Toggle -->
+        <button class="theme-toggle-btn" id="themeToggleBtn" title="Toggle Dark/Light Mode" aria-label="Toggle theme">
+          <i data-lucide="moon" id="themeIcon" style="width: 17px; height: 17px;"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Wrapper -->
+  <main class="main-wrapper">
+
+    <!-- Procurement Portal Header Banner -->
+    <section class="procurement-header-banner">
+      <div>
+        <div
+          style="display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.25rem 0.75rem; border-radius: var(--radius-full); background: var(--brand-blue-light); color: var(--brand-blue); font-size: 0.78rem; font-weight: 700; margin-bottom: 0.6rem;">
+          <i data-lucide="shield-check" style="width: 14px; height: 14px;"></i>
+          <span>Official GeM & CPPP Tender Publishing Portal</span>
+        </div>
+        <h1 class="procurement-banner-title">Procurement Official & Technical Tender Registry</h1>
+        <p class="procurement-banner-sub">
+          Register official department details and procurement specifications to identify applicable Bureau of Indian
+          Standards (BIS), verify mandatory Quality Control Orders (QCOs), and generate GeM-compliant NIT schedules.
+        </p>
+      </div>
+      <div>
+        <a href="index.html" class="btn btn-secondary">
+          <i data-lucide="arrow-left" style="width: 15px; height: 15px;"></i>
+          <span>Back to Home</span>
+        </a>
+      </div>
+    </section>
+
+    <!-- Comprehensive Procurement Official Registration & Specification Form -->
+    <form id="procurementTenderForm" onsubmit="handleProcurementSubmit(event)">
+      <div class="procurement-form-card">
+
+        <!-- SECTION 1: Procurement Official & Department Credentials -->
+        <div class="form-section-title">
+          <i data-lucide="user-check" style="color: var(--brand-blue);"></i>
+          <span>1. Procurement Official & Department Credentials</span>
+        </div>
+        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 1.25rem;">
+          These details are incorporated directly into the official Notice Inviting Tender (NIT) header and GeM
+          Pre-Qualification Criteria.
+        </p>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label" for="officerName">Procurement Officer / TIA Name *</label>
+            <input type="text" id="officerName" class="form-input" placeholder="e.g. Er. Rajesh Kumar Sharma" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="officerDesignation">Official Designation / Role *</label>
+            <input type="text" id="officerDesignation" class="form-input"
+              placeholder="e.g. Executive Engineer (Electrical) / TIA" required>
+          </div>
+        </div>
+
+        <div class="form-grid-3">
+          <div class="form-group">
+            <label class="form-label" for="deptMinistry">Ministry / Department / PSE *</label>
+            <input type="text" id="deptMinistry" class="form-input"
+              placeholder="e.g. CPWD / Ministry of Housing & Urban Affairs" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="officerEmail">Official Gov Email *</label>
+            <input type="email" id="officerEmail" class="form-input" placeholder="officer@gov.in or officer@nic.in"
+              required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="officerPhone">Official Contact / Mobile</label>
+            <input type="tel" id="officerPhone" class="form-input" placeholder="+91 98765 43210">
+          </div>
+        </div>
+
+        <div class="form-grid-3">
+          <div class="form-group">
+            <label class="form-label" for="gemBuyerId">GeM Buyer ID / CPPP Org Code *</label>
+            <input type="text" id="gemBuyerId" class="form-input" placeholder="e.g. GEM-BUYER-DL-2024-8841" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="tenderRefNo">NIT / Tender Reference Number *</label>
+            <input type="text" id="tenderRefNo" class="form-input" placeholder="e.g. NIT/2024/CPWD/ELEC-HT/041"
+              required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="tenderBudget">Estimated Tender Value (₹)</label>
+            <input type="text" id="tenderBudget" class="form-input" placeholder="e.g. ₹ 4.50 Crores">
+          </div>
+        </div>
+
+        <!-- SECTION 2: Technical Specifications & Procurement Parameters -->
+        <div class="form-section-divider">
+          <div class="form-section-title">
+            <i data-lucide="sliders" style="color: var(--brand-emerald);"></i>
+            <span>2. Technical Specifications & Material Requirements</span>
+          </div>
+          <span style="font-size: 0.78rem; color: var(--text-tertiary);">Provide EITHER a Product Description OR a Draft
+            Tender Document</span>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label" for="procCategory">GeM Portal Product Category</label>
+            <select id="procCategory" class="form-select">
+              <option value="">-- Select GeM Product Category --</option>
+              <optgroup label="Civil, Infrastructure & Construction">
+                <option value="Civil & Construction">Civil & Infrastructure (Cement, TMT Steel, Structural Steel)
+                </option>
+                <option value="TMT Bars">High Strength Deformed Steel Bars / TMT (IS 1786)</option>
+                <option value="Cement">Ordinary Portland / Pozzolana Cement (IS 269 / IS 1489)</option>
+                <option value="Structural Steel">Structural Steel Sections & Plates (IS 2062)</option>
+              </optgroup>
+              <optgroup label="Electrical, Power Transmission & Cables">
+                <option value="Electrical & Cables">Power & Control Cables (XLPE / PVC Insulated)</option>
+                <option value="XLPE Cables">XLPE Power Cables 3.3kV to 33kV (IS 7098 Pt 2)</option>
+                <option value="PVC Cables">PVC Insulated Cables up to 1100V (IS 694)</option>
+                <option value="LED Lighting">LED Luminaires & Street Lighting (IS 16102 / IS 10322)</option>
+                <option value="Transformers">Distribution & Power Transformers (IS 1180 Pt 1)</option>
+              </optgroup>
+              <optgroup label="IT Hardware & Electronics (MeitY CRS)">
+                <option value="IT & Electronics">IT Hardware (Laptops, Desktops, Servers, CCTV)</option>
+                <option value="CCTV Systems">CCTV Surveillance & Security Cameras (IS 13252 Pt 1)</option>
+              </optgroup>
+              <optgroup label="Personal Protective Equipment (PPE) & Safety">
+                <option value="Safety & PPE">Industrial PPE (Helmets, Safety Shoes, Harnesses)</option>
+                <option value="Safety Helmets">Industrial Safety Helmets (IS 2925)</option>
+                <option value="Safety Footwear">Occupational Protective Safety Footwear (IS 15298 Pt 2)</option>
+              </optgroup>
+              <optgroup label="Pipes, Tubing & Water Supply (Jal Jeevan)">
+                <option value="Pipes & Water Supply">Pipes & Tubing (HDPE, Ductile Iron, UPVC)</option>
+                <option value="HDPE Pipes">High Density Polyethylene (HDPE) Pipes (IS 4984)</option>
+                <option value="Ductile Iron Pipes">Centrifugally Cast Ductile Iron Pressure Pipes (IS 8329)</option>
+              </optgroup>
+              <optgroup label="Fire Fighting & Disaster Management">
+                <option value="Fire Safety">Fire Safety (Extinguishers, Hydrants, Sprinklers)</option>
+                <option value="Fire Extinguishers">Portable Fire Extinguishers (IS 15683)</option>
+              </optgroup>
+              <optgroup label="Medical, Hospital & Healthcare Equipment">
+                <option value="Medical Devices">Medical Devices (Surgical Gloves, Syringes)</option>
+              </optgroup>
+              <optgroup label="Automotive & Transport Safety">
+                <option value="Automotive">Automotive & Transport (Tyres, Safety Glass, Batteries)</option>
+              </optgroup>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="deliveryLocation">Consignee Delivery Location</label>
+            <input type="text" id="deliveryLocation" class="form-input"
+              placeholder="e.g. Central Stores, Shakurbasti, New Delhi">
+          </div>
+        </div>
+
+        <!-- EITHER / OR Input Method Selector Container -->
+        <div class="spec-input-method-box">
+          <label class="form-label"
+            style="font-weight: 700; margin-bottom: 0.6rem; display: flex; align-items: center; gap: 0.4rem;">
+            <i data-lucide="split" style="width: 15px; height: 15px; color: var(--brand-blue);"></i>
+            <span>Select Specification Input Method (Choose One):</span>
+          </label>
+
+          <div class="spec-method-tabs">
+            <button type="button" class="spec-method-btn active" id="btnModeDesc" onclick="switchSpecMode('desc')">
+              <i data-lucide="edit-3" style="width: 16px; height: 16px;"></i>
+              <span>Option A: Type Product Description</span>
+            </button>
+            <button type="button" class="spec-method-btn" id="btnModeDoc" onclick="switchSpecMode('doc')">
+              <i data-lucide="file-up" style="width: 16px; height: 16px;"></i>
+              <span>Option B: Upload / Paste Draft Document</span>
+            </button>
+          </div>
+
+          <!-- OPTION A: Product Description Panel -->
+          <div id="panelDesc" class="spec-panel">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.4rem;">
+              <label class="form-label" for="procQueryInput" style="margin-bottom: 0; font-weight: 600;">
+                Product Scope & Technical Description *
+              </label>
+              <button class="hero-mic-btn" id="micBtn" title="Voice Input" aria-label="Voice input" type="button">
+                <i data-lucide="mic" style="width: 14px; height: 14px;"></i>
+                <span>Voice</span>
+              </button>
+            </div>
+            <textarea id="procQueryInput" class="form-input" rows="3"
+              style="min-height: 95px; resize: vertical; line-height: 1.55; font-size: 0.95rem;"
+              placeholder="Describe what you are procuring (e.g. Supply of 33kV XLPE power cables for underground metro traction substation with Low Smoke Zero Halogen outer jacket)..."></textarea>
+            <div style="font-size: 0.78rem; color: var(--text-tertiary); margin-top: 0.35rem;">
+              Provide clear functional parameters, expected performance, or intended operating environment.
+            </div>
+          </div>
+
+          <!-- OPTION B: Draft Document Upload Panel -->
+          <div id="panelDoc" class="spec-panel" style="display: none;">
+            <label class="form-label" style="font-weight: 600; margin-bottom: 0.4rem;">
+              Attach Draft Tender Document (PDF/TXT) *
+            </label>
+            <div class="dropzone-box" id="procDropzone">
+              <i data-lucide="upload-cloud" style="width: 32px; height: 32px; color: var(--brand-blue);"></i>
+              <strong style="font-size: 0.95rem;">Drag & drop your draft tender file here</strong>
+              <span style="font-size: 0.8rem; color: var(--text-tertiary);">Supports .txt, .pdf, .doc, .docx
+                files</span>
+              <input type="file" id="procFileInput" style="display: none;" accept=".txt,.pdf,.doc,.docx">
+            </div>
+
+            <div style="margin-top: 0.75rem;">
+              <label class="form-label" for="procDocText">Or Paste Draft Tender Specification Text Directly:</label>
+              <textarea id="procDocText" class="tender-tray-textarea" style="min-height: 110px;"
+                placeholder="Paste full Notice Inviting Tender (NIT) draft or technical clause text here..."></textarea>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-grid-2">
+          <div class="form-group">
+            <label class="form-label" for="procMaterial">Material Composition / Grade (Optional)</label>
+            <input type="text" id="procMaterial" class="form-input"
+              placeholder="e.g. XLPE insulation, Fe 500D, 53 Grade OPC, Virgin PE 100">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label" for="procOperatingParam">Operating Rating / Limits (Optional)</label>
+            <input type="text" id="procOperatingParam" class="form-input"
+              placeholder="e.g. 33 kV voltage, 200 Joules impact, PN 16 rating">
+          </div>
+        </div>
+
+        <!-- Statutory BIS Certification & Pre-Qualification Section -->
+        <div
+          style="background: rgba(37, 99, 235, 0.05); border: 1px solid rgba(37, 99, 235, 0.25); border-radius: var(--radius-lg); padding: 1.25rem 1.5rem; margin-top: 1.5rem;">
+          <div style="display: flex; align-items: center; gap: 0.5rem; margin-bottom: 0.6rem;">
+            <i data-lucide="shield-alert" style="width: 18px; height: 18px; color: var(--brand-blue);"></i>
+            <strong style="font-size: 0.95rem; color: var(--text-primary);">Mandatory BIS Certification Advisory for
+              Procurement Officials:</strong>
+          </div>
+          <p style="font-size: 0.84rem; color: var(--text-secondary); line-height: 1.55; margin-bottom: 0.85rem;">
+            <strong>Why certification matters:</strong> Procurement officials must determine <em>before publishing a
+              tender</em> whether the product legally requires mandatory BIS certification under Central Government
+            Quality Control Orders (QCOs). If not explicitly mandated in the tender, vendors could legally supply
+            uncertified (illegal-to-sell) products, leading to audit objections, delivery rejections, or compromised
+            safety.
+          </p>
+
+          <div
+            style="display: flex; flex-direction: column; gap: 0.5rem; font-size: 0.82rem; color: var(--text-primary);">
+            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+              <input type="checkbox" id="chkMandateCert" checked>
+              <span>Mandate valid BIS License / CML / R-Number in Bidder Eligibility (Pre-Qualification Criteria)</span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+              <input type="checkbox" id="chkDisallowUncertified" checked>
+              <span>Disallow uncertified products under statutory Central Government QCO Orders</span>
+            </label>
+            <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+              <input type="checkbox" id="chkPreDispatchTest" checked>
+              <span>Mandate Batch-wise Factory Test Certificates complying with allied BIS test methods</span>
+            </label>
+          </div>
+
+          <div
+            style="font-size: 0.74rem; color: var(--text-tertiary); margin-top: 0.75rem; border-top: 1px dashed var(--border-medium); padding-top: 0.5rem;">
+            <em>Note: The Bureau of Indian Standards (BIS) is the sole statutory certifying authority. This engine
+              identifies official public Gazette mandates to ensure your tender clauses are legally airtight.</em>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div
+          style="display: flex; justify-content: flex-end; margin-top: 1.75rem; padding-top: 1.25rem; border-top: 1px solid var(--border-subtle);">
+          <button type="submit" class="btn btn-primary" style="padding: 0.75rem 2rem; font-size: 1rem;">
+            <i data-lucide="cpu" style="width: 18px; height: 18px;"></i>
+            <span>Analyze Specifications & Generate Indian Standards Schedule</span>
+          </button>
+        </div>
+      </div>
+    </form>
+
+    <!-- Outdated Standards Alert (if legacy standard cited) -->
+    <div id="deprecatedAlertsContainer"></div>
+
+    <!-- Official NIT Metadata Summary Banner (Appears after submission) -->
+    <div class="nit-summary-card" id="nitSummaryCard" style="display: none;">
+      <div style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <i data-lucide="file-badge" style="color: var(--brand-blue); width: 20px; height: 20px;"></i>
+          <strong style="font-size: 1rem; color: var(--text-primary);">Notice Inviting Tender (NIT) Official
+            Header</strong>
+        </div>
+        <span class="brand-badge" style="background: var(--brand-emerald-light); color: var(--brand-emerald);">GeM Buyer
+          Verified</span>
+      </div>
+
+      <div class="nit-summary-grid">
+        <div class="nit-summary-item">
+          <span class="nit-summary-label">Procurement Officer</span>
+          <span class="nit-summary-val" id="sumOfficerName">-</span>
+        </div>
+        <div class="nit-summary-item">
+          <span class="nit-summary-label">Designation / Role</span>
+          <span class="nit-summary-val" id="sumDesignation">-</span>
+        </div>
+        <div class="nit-summary-item">
+          <span class="nit-summary-label">Ministry / Department</span>
+          <span class="nit-summary-val" id="sumMinistry">-</span>
+        </div>
+        <div class="nit-summary-item">
+          <span class="nit-summary-label">NIT Reference No.</span>
+          <span class="nit-summary-val" id="sumNitRef"
+            style="font-family: var(--font-mono); color: var(--brand-blue);">-</span>
+        </div>
+        <div class="nit-summary-item">
+          <span class="nit-summary-label">GeM Buyer ID</span>
+          <span class="nit-summary-val" id="sumGemId" style="font-family: var(--font-mono);">-</span>
+        </div>
+        <div class="nit-summary-item">
+          <span class="nit-summary-label">Estimated Value</span>
+          <span class="nit-summary-val" id="sumBudget">-</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Results Section -->
+    <section class="results-section" id="resultsSection">
+      <div class="results-header-bar" id="resultsHeaderBar" style="display: none;">
+        <h2 class="results-count-title">
+          <span id="resultsTitle">Applicable Indian Standards</span>
+          <span class="results-count-badge" id="resultsCount">0 Standards</span>
+        </h2>
+      </div>
+
+      <!-- Injected by JavaScript -->
+      <div class="standards-grid" id="resultsContainer"></div>
+    </section>
+
+  </main>
+
+  <!-- Interactive Standards Network Graph Modal -->
+  <div class="modal-backdrop" id="graphModal">
+    <div class="modal-window">
+      <div class="modal-header">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <div class="modal-icon-badge">
+            <i data-lucide="git-fork" style="width: 18px; height: 18px;"></i>
+          </div>
+          <div>
+            <h3 class="modal-title" id="graphModalTitle">Standards Network Graph</h3>
+            <span class="modal-sub">Cross-referenced Normative, Test Methods, Safety & Installation Standards</span>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <button class="btn btn-secondary btn-sm" onclick="resetGraphView()">
+            <i data-lucide="rotate-ccw" style="width: 13px; height: 13px;"></i>
+            <span>Reset</span>
+          </button>
+          <button class="btn-close-modal modal-closer" aria-label="Close modal">
+            <i data-lucide="x" style="width: 16px; height: 16px;"></i>
+          </button>
+        </div>
+      </div>
+      <div class="modal-body" style="padding: 1rem;">
+        <div class="graph-canvas-container">
+          <canvas id="graphCanvas"></canvas>
+          <div class="graph-legend">
+            <div class="legend-item"><span class="legend-dot" style="background: #2563eb;"></span><span>Primary Product
+                Standard</span></div>
+            <div class="legend-item"><span class="legend-dot" style="background: #7c3aed;"></span><span>Mandatory Test
+                Method</span></div>
+            <div class="legend-item"><span class="legend-dot" style="background: #059669;"></span><span>Normative
+                Reference</span></div>
+            <div class="legend-item"><span class="legend-dot" style="background: #d97706;"></span><span>Safety &
+                Detailing Code</span></div>
+            <div class="legend-item"><span class="legend-dot" style="background: #0891b2;"></span><span>Installation
+                Standard</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Amendments History Modal -->
+  <div class="modal-backdrop" id="amendmentsModal">
+    <div class="modal-window" style="max-width: 720px;">
+      <div class="modal-header">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <div class="modal-icon-badge purple">
+            <i data-lucide="history" style="width: 18px; height: 18px;"></i>
+          </div>
+          <div>
+            <h3 class="modal-title" id="amendmentsModalTitle">Amendments & Revisions</h3>
+            <span class="modal-sub">Official BIS Gazette Revisions & Technical Amendments</span>
+          </div>
+        </div>
+        <button class="btn-close-modal modal-closer" aria-label="Close modal">
+          <i data-lucide="x" style="width: 16px; height: 16px;"></i>
+        </button>
+      </div>
+      <div class="modal-body" id="amendmentsList"></div>
+    </div>
+  </div>
+
+  <!-- Tender Specification Pack Modal -->
+  <div class="modal-backdrop" id="tenderModal">
+    <div class="modal-window" style="max-width: 860px;">
+      <div class="modal-header">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <div class="modal-icon-badge emerald">
+            <i data-lucide="file-badge" style="width: 18px; height: 18px;"></i>
+          </div>
+          <div>
+            <h3 class="modal-title">Compiled Official GeM / NIT Tender Schedule</h3>
+            <span class="modal-sub">Ready to paste into GeM or Notice Inviting Tender (NIT) portal</span>
+          </div>
+        </div>
+        <button class="btn-close-modal modal-closer" aria-label="Close modal">
+          <i data-lucide="x" style="width: 16px; height: 16px;"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre class="tender-doc-preview" id="compiledTenderDoc"></pre>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary"
+          onclick="navigator.clipboard.writeText(document.getElementById('compiledTenderDoc').textContent).then(() => showToast('Full Tender Schedule Copied!'))">
+          <i data-lucide="copy" style="width: 15px; height: 15px;"></i>
+          <span>Copy Schedule</span>
+        </button>
+        <button class="btn btn-emerald" onclick="downloadTenderDoc()">
+          <i data-lucide="download" style="width: 15px; height: 15px;"></i>
+          <span>Download NIT Pack (.txt)</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Tender Cart Counter -->
+  <div class="tender-cart-floater" id="tenderCartFloater" style="display: none;"
+    title="Open Compiled Tender Specification Pack">
+    <i data-lucide="file-badge" style="width: 18px; height: 18px;"></i>
+    <span>Tender Spec Pack</span>
+    <span class="cart-counter" id="tenderCartCount">0</span>
+  </div>
+
+  <!-- Scripts -->
+  <script src="standards-data.js"></script>
+  <script src="app.js"></script>
+  <script>
+    // Procurement Page Specific Logic
+    // Switch between Option A (Description) and Option B (Draft Document)
+    function switchSpecMode(mode) {
+      const btnDesc = document.getElementById('btnModeDesc');
+      const btnDoc = document.getElementById('btnModeDoc');
+      const panelDesc = document.getElementById('panelDesc');
+      const panelDoc = document.getElementById('panelDoc');
+
+      if (mode === 'desc') {
+        btnDesc.classList.add('active');
+        btnDoc.classList.remove('active');
+        panelDesc.style.display = 'block';
+        panelDoc.style.display = 'none';
+        const input = document.getElementById('procQueryInput');
+        if (input) setTimeout(() => input.focus(), 150);
+      } else {
+        btnDoc.classList.add('active');
+        btnDesc.classList.remove('active');
+        panelDoc.style.display = 'block';
+        panelDesc.style.display = 'none';
+        const docText = document.getElementById('procDocText');
+        if (docText) setTimeout(() => docText.focus(), 150);
+      }
+      initLucideIcons();
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // File upload dropzone
+      const dropzone = document.getElementById('procDropzone');
+      const fileInput = document.getElementById('procFileInput');
+      if (dropzone && fileInput) {
+        dropzone.addEventListener('click', () => fileInput.click());
+        fileInput.addEventListener('change', (e) => {
+          if (e.target.files.length) {
+            const file = e.target.files[0];
+            const reader = new FileReader();
+            reader.onload = (evt) => {
+              document.getElementById('procDocText').value = evt.target.result;
+              showToast(`Attached file: ${file.name} (${(file.size / 1024).toFixed(1)} KB)`);
+            };
+            reader.readAsText(file);
+          }
+        });
+      }
+    });
+
+    async function handleProcurementSubmit(event) {
+      event.preventDefault();
+      const officerName = document.getElementById('officerName').value.trim();
+      const officerDesignation = document.getElementById('officerDesignation').value.trim();
+      const deptMinistry = document.getElementById('deptMinistry').value.trim();
+      const gemBuyerId = document.getElementById('gemBuyerId').value.trim();
+      const tenderRefNo = document.getElementById('tenderRefNo').value.trim();
+      const tenderBudget = document.getElementById('tenderBudget').value.trim() || 'N/A';
+      const query = document.getElementById('procQueryInput').value.trim();
+      const docText = document.getElementById('procDocText').value.trim();
+      const material = document.getElementById('procMaterial').value.trim();
+      const operatingParam = document.getElementById('procOperatingParam').value.trim();
+
+      // Either / Or Validation: At least one must be provided!
+      if (!query && !docText) {
+        showToast("Please provide EITHER a Product Description OR upload a Draft Tender Document.");
+        return;
+      }
+
+      // Populate Official NIT Summary Card
+      document.getElementById('sumOfficerName').textContent = officerName;
+      document.getElementById('sumDesignation').textContent = officerDesignation;
+      document.getElementById('sumMinistry').textContent = deptMinistry;
+      document.getElementById('sumNitRef').textContent = tenderRefNo;
+      document.getElementById('sumGemId').textContent = gemBuyerId;
+      document.getElementById('sumBudget').textContent = tenderBudget;
+      document.getElementById('nitSummaryCard').style.display = 'block';
+
+      const procCategory = document.getElementById('procCategory')?.value?.trim() || '';
+
+      // Combine specification inputs including selected GeM category
+      const combinedSpec = `${procCategory} ${query} ${material} ${operatingParam} ${docText}`.trim();
+
+      showLoadingState();
+
+      const data = {
+        officer_name: officerName,
+        officer_designation: officerDesignation,
+        department: deptMinistry,
+        gem_buyer_id: gemBuyerId,
+        tender_reference: tenderRefNo,
+        tender_budget: tenderBudget,
+
+        product_category: procCategory,
+        product_description: query,
+        document_text: docText,
+        material: material,
+        operating_rating: operatingParam,
+
+        language: document.getElementById('langSelect')?.value || 'en'
+      };
+
+      const result = await sendToBackend(data);
+
+      console.log("Backend JSON:", result);
+
+      if (!result) {
+        return;
+      }
+
+      const standards = result.applicable_standards || [];
+
+      appState.currentResults = standards.map(item => ({
+        standard: item,
+        confidence: item.confidence,
+        matchReasons: item.matchReasons
+      }));
+
+      renderRecommendations(standards, true);
+    }
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,1088 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="IS-Match - Find the right Indian Standard in seconds, not hours. AI-powered recommendation engine for procurement specifications and GeM tenders.">
+  <title>IS-Match — Find the right Indian Standard in seconds, not hours.</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+
+  <!-- Top Tricolor Accent Bar -->
+  <div class="top-tricolor-bar"></div>
+
+  <!-- Official Government of India Top Utility Bar -->
+  <div class="gov-top-bar">
+    <div class="gov-top-container">
+      <div class="gov-top-left">
+        <span class="gov-flag-icon">🇮🇳</span>
+        <span class="gov-title-hi">भारत सरकार</span>
+        <span class="gov-sep">|</span>
+        <span class="gov-title-en">GOVERNMENT OF INDIA</span>
+        <span class="gov-sep">|</span>
+        <span class="gov-ministry">Ministry of Consumer Affairs, Food & Public Distribution</span>
+      </div>
+      <div class="gov-top-right">
+        <a href="#mainContent" class="gov-util-link">Skip to Main Content</a>
+        <span class="gov-sep">|</span>
+        <button type="button" class="gov-util-btn" id="btnScreenReader" title="Screen Reader Access"
+          onclick="toggleScreenReader()">
+          <i data-lucide="volume-2" style="width: 12px; height: 12px;"></i>
+          <span>Screen Reader</span>
+        </button>
+        <span class="gov-sep">|</span>
+        <div class="font-resizer-group">
+          <button type="button" class="font-resize-btn" onclick="adjustFontSize(-1)"
+            title="Decrease font size">A-</button>
+          <button type="button" class="font-resize-btn" onclick="adjustFontSize(0)" title="Normal font size">A</button>
+          <button type="button" class="font-resize-btn" onclick="adjustFontSize(1)"
+            title="Increase font size">A+</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 1. Official Portal Header -->
+  <header class="app-header">
+    <div class="header-container">
+      <div class="brand-section">
+        <!-- State Emblem of India (Ashoka Lion Capital with Satyameva Jayate) -->
+        <div class="national-emblem-wrap" title="State Emblem of India | भारत का राज्य प्रतीक">
+          <svg class="national-emblem-svg" viewBox="0 0 120 160" fill="currentColor" xmlns="http://www.w3.org/2000/svg"
+            aria-label="State Emblem of India">
+            <!-- Center, Left, Right Lions -->
+            <g class="emblem-lions">
+              <!-- Center Lion Head & Mane -->
+              <path
+                d="M60 12 C55 12 51 16 51 21 C51 23 52 25 54 26 C51 28 48 31 48 35 C48 39 51 41 53 43 C50 45 47 49 47 54 C47 60 52 64 57 65 L57 68 L63 68 L63 65 C68 64 73 60 73 54 C73 49 70 45 67 43 C69 41 72 39 72 35 C72 31 69 28 66 26 C68 25 69 23 69 21 C69 16 65 12 60 12 Z"
+                opacity="0.95" />
+              <path d="M57 32 C57 30 58 29 60 29 C62 29 63 30 63 32 L63 36 C63 37 62 38 60 38 C58 38 57 37 57 36 Z"
+                fill="var(--bg-surface, #fff)" />
+              <!-- Left Lion Head -->
+              <path
+                d="M35 26 C31 26 28 29 28 33 C28 35 29 37 30 38 C28 40 26 43 26 47 C26 51 29 54 31 56 C29 58 28 62 29 67 C30 72 35 75 40 76 L42 71 C38 70 34 67 33 63 C35 62 37 60 38 58 C37 56 36 53 36 50 C38 49 41 50 42 51 C41 47 41 44 43 41 C41 39 40 37 40 34 C43 33 45 33 46 35 C45 31 45 28 47 26 Z"
+                opacity="0.9" />
+              <!-- Right Lion Head -->
+              <path
+                d="M85 26 C89 26 92 29 92 33 C92 35 91 37 90 38 C92 40 94 43 94 47 C94 51 91 54 89 56 C91 58 92 62 91 67 C90 72 85 75 80 76 L78 71 C82 70 86 67 87 63 C85 62 83 60 82 58 C83 56 84 53 84 50 C82 49 79 50 78 51 C79 47 79 44 77 41 C79 39 80 37 80 34 C77 33 75 33 74 35 C75 31 75 28 73 26 Z"
+                opacity="0.9" />
+              <!-- Lion Body & Forequarters -->
+              <path d="M44 68 L44 82 C44 85 47 87 50 87 L70 87 C73 87 76 85 76 82 L76 68 Z" />
+            </g>
+            <!-- Abacus with Ashoka Chakra -->
+            <g class="emblem-abacus">
+              <rect x="16" y="89" width="88" height="6" rx="2" />
+              <!-- Central Ashoka Chakra (Dharma Wheel with Spokes) -->
+              <circle cx="60" cy="107" r="11" stroke="currentColor" stroke-width="2.5" fill="none" />
+              <circle cx="60" cy="107" r="2.5" fill="currentColor" />
+              <line x1="60" y1="96" x2="60" y2="118" stroke="currentColor" stroke-width="1.2" />
+              <line x1="49" y1="107" x2="71" y2="107" stroke="currentColor" stroke-width="1.2" />
+              <line x1="52" y1="99" x2="68" y2="115" stroke="currentColor" stroke-width="1.2" />
+              <line x1="68" y1="99" x2="52" y2="115" stroke="currentColor" stroke-width="1.2" />
+              <!-- Galloping Horse (Left) -->
+              <path d="M28 103 C26 100 22 102 22 105 C22 110 27 111 32 111 L35 107 Z" opacity="0.85" />
+              <!-- Bull (Right) -->
+              <path d="M92 103 C94 100 98 102 98 105 C98 110 93 111 88 111 L85 107 Z" opacity="0.85" />
+              <!-- Lower Abacus Base -->
+              <rect x="12" y="119" width="96" height="5" rx="1.5" />
+            </g>
+            <!-- Lotus Bell Pedestal -->
+            <path d="M22 124 C32 133 88 133 98 124 L94 131 C84 136 36 136 26 131 Z" opacity="0.85" />
+            <!-- Inscription: SATYAMEVA JAYATE (सत्यमेव जयते) -->
+            <text x="60" y="152" font-family="'Noto Sans Devanagari', 'Mukta', 'Hind', sans-serif" font-size="10.5"
+              font-weight="900" text-anchor="middle" letter-spacing="1">सत्यमेव जयते</text>
+          </svg>
+        </div>
+
+        <!-- Official Ministry / BIS Portal Branding -->
+        <div class="gov-emblem-text">
+          <div class="emblem-gov-title">भारत सरकार &bull; Government of India</div>
+          <div class="emblem-ministry-title">Ministry of Consumer Affairs, Food & Public Distribution</div>
+          <div class="emblem-dept-title">Bureau of Indian Standards (BIS) &bull; GeM e-Procurement</div>
+        </div>
+
+        <!-- Vertical Divider Line -->
+        <div class="header-v-divider"></div>
+
+        <!-- IS-Match Portal Title Badge -->
+        <div class="brand-text-block">
+          <div class="brand-name">IS-Match</div>
+          <span class="portal-category-badge">National Standards Engine</span>
+        </div>
+      </div>
+
+      <div class="header-controls">
+        <!-- Home Tab -->
+        <a href="index.html" class="nav-tab-btn active" title="Go to Home">
+          <i data-lucide="home" style="width: 15px; height: 15px;"></i>
+          <span data-i18n="home">Home</span>
+        </a>
+
+        <!-- Login Button -->
+        <button type="button" class="nav-tab-btn" id="loginBtn" title="Login to Official / Vendor Portal">
+          <i data-lucide="log-in" style="width: 15px; height: 15px;"></i>
+          <span data-i18n="login">Login</span>
+        </button>
+
+        <!-- Language Selector -->
+        <div class="lang-dropdown-wrapper">
+          <i data-lucide="globe" style="width: 15px; height: 15px; color: var(--text-tertiary);"></i>
+          <select id="langSelect" class="lang-dropdown" aria-label="Select Input Language">
+            <option value="en">English</option>
+            <option value="hi">हिन्दी (Hindi)</option>
+            <option value="ta">தமிழ் (Tamil)</option>
+            <option value="te">తెలుగు (Telugu)</option>
+            <option value="mr">मराठी (Marathi)</option>
+            <option value="gu">ગુજરાતી (Gujarati)</option>
+          </select>
+        </div>
+
+        <!-- Theme Toggle -->
+        <button class="theme-toggle-btn" id="themeToggleBtn" title="Toggle Dark/Light Mode" aria-label="Toggle theme">
+          <i data-lucide="moon" id="themeIcon" style="width: 17px; height: 17px;"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Wrapper -->
+  <main class="main-wrapper" id="mainContent">
+
+    <!-- 2. Hero Section -->
+    <section class="hero-section">
+      <!-- Quick Tender Utilities (Search Tender, Tender Calendar, Recent Tenders) - Placed at the TOP -->
+      <div class="tender-quick-actions-bar hero-top-nav">
+        <button type="button" class="quick-action-btn" id="btnSearchTender" title="Search Tender Database">
+          <i data-lucide="file-search" style="width: 16px; height: 16px;"></i>
+          <span data-i18n="search_tender">Search Tender</span>
+        </button>
+
+        <button type="button" class="quick-action-btn" id="btnTenderCalendar"
+          title="Tender Submission Deadlines & Calendar">
+          <i data-lucide="calendar-days" style="width: 16px; height: 16px;"></i>
+          <span data-i18n="tender_calendar">Tender Calendar</span>
+        </button>
+
+        <button type="button" class="quick-action-btn" id="btnRecentTenders" title="Browse Recently Published Tenders">
+          <i data-lucide="clock" style="width: 16px; height: 16px;"></i>
+          <span data-i18n="recent_tenders">Recent Tenders</span>
+        </button>
+
+        <!-- Standards Dropdown Menu & Links List -->
+        <div class="standards-dropdown-wrapper" id="standardsDropdownWrapper">
+          <button type="button" class="quick-action-btn" id="btnStandardsMenu"
+            title="Bureau of Indian Standards (BIS) Official Resources" aria-haspopup="true" aria-expanded="false">
+            <i data-lucide="book-marked" style="width: 16px; height: 16px;"></i>
+            <span data-i18n="standards_menu">Standards</span>
+            <i data-lucide="chevron-down" style="width: 13px; height: 13px; margin-left: 2px;"></i>
+          </button>
+
+          <!-- Dropdown Menu under Standards -->
+          <div class="standards-dropdown-menu" id="standardsDropdownMenu">
+            <div class="standards-menu-header">
+              <i data-lucide="award" style="width: 15px; height: 15px; color: var(--brand-blue);"></i>
+              <span>BIS Official Standards Directory</span>
+            </div>
+            <div class="standards-menu-links">
+              <a href="https://standardsbis.bsbedge.com/" target="_blank" rel="noopener noreferrer"
+                class="standards-link-item">
+                <i data-lucide="download" style="width: 14px; height: 14px;"></i>
+                <span>Download Indian Standards</span>
+                <i data-lucide="external-link" class="link-ext"></i>
+              </a>
+              <a href="https://standards.bis.gov.in/website/technical-departments/department-list" target="_blank"
+                rel="noopener noreferrer" class="standards-link-item">
+                <i data-lucide="building-2" style="width: 14px; height: 14px;"></i>
+                <span>Technical Departments</span>
+                <i data-lucide="external-link" class="link-ext"></i>
+              </a>
+              <a href="https://www.bis.gov.in/manak-pravardhak-programme/?lang=en" target="_blank"
+                rel="noopener noreferrer" class="standards-link-item">
+                <i data-lucide="sparkles" style="width: 14px; height: 14px;"></i>
+                <span>Manak Pravardhak Programme</span>
+                <i data-lucide="external-link" class="link-ext"></i>
+              </a>
+              <a href="https://standards.bis.gov.in/website/standardization-cells" target="_blank"
+                rel="noopener noreferrer" class="standards-link-item">
+                <i data-lucide="grid" style="width: 14px; height: 14px;"></i>
+                <span>Standardization Cells</span>
+                <i data-lucide="external-link" class="link-ext"></i>
+              </a>
+              <a href="https://standards.bis.gov.in/website/published-standards/department-wise" target="_blank"
+                rel="noopener noreferrer" class="standards-link-item">
+                <i data-lucide="file-check" style="width: 14px; height: 14px;"></i>
+                <span>Published Standards</span>
+                <i data-lucide="external-link" class="link-ext"></i>
+              </a>
+              <a href="https://standards.bis.gov.in/website/proposals-for-standards" target="_blank"
+                rel="noopener noreferrer" class="standards-link-item">
+                <i data-lucide="file-plus" style="width: 14px; height: 14px;"></i>
+                <span>Proposal for New Standards</span>
+                <i data-lucide="external-link" class="link-ext"></i>
+              </a>
+              <a href="https://standards.bis.gov.in/website/review-of-standards" target="_blank"
+                rel="noopener noreferrer" class="standards-link-item">
+                <i data-lucide="refresh-cw" style="width: 14px; height: 14px;"></i>
+                <span>Standards under Review</span>
+                <i data-lucide="external-link" class="link-ext"></i>
+              </a>
+              <a href="https://standards.bis.gov.in/website/wc-drafts" target="_blank" rel="noopener noreferrer"
+                class="standards-link-item">
+                <i data-lucide="files" style="width: 14px; height: 14px;"></i>
+                <span>Wide Circulation Drafts</span>
+                <i data-lucide="external-link" class="link-ext"></i>
+              </a>
+              <a href="https://standards.bis.gov.in/website/sdo-list" target="_blank" rel="noopener noreferrer"
+                class="standards-link-item">
+                <i data-lucide="shield-check" style="width: 14px; height: 14px;"></i>
+                <span>Accreditation of SDOs</span>
+                <i data-lucide="external-link" class="link-ext"></i>
+              </a>
+              <a href="https://standards.bis.gov.in/website/mou" target="_blank" rel="noopener noreferrer"
+                class="standards-link-item">
+                <i data-lucide="handshake" style="width: 14px; height: 14px;"></i>
+                <span>MoU</span>
+                <i data-lucide="external-link" class="link-ext"></i>
+              </a>
+              <a href="https://standards.bis.gov.in/website/r-and-d-projects/projects-on-the-offer" target="_blank"
+                rel="noopener noreferrer" class="standards-link-item">
+                <i data-lucide="flask-conical" style="width: 14px; height: 14px;"></i>
+                <span>R D Projects</span>
+                <i data-lucide="external-link" class="link-ext"></i>
+              </a>
+              <a href="https://irportal.bis.gov.in/home" target="_blank" rel="noopener noreferrer"
+                class="standards-link-item">
+                <i data-lucide="globe" style="width: 14px; height: 14px;"></i>
+                <span>International Relations</span>
+                <i data-lucide="external-link" class="link-ext"></i>
+              </a>
+              <a href="https://standards.bis.gov.in/website/technical-departments/program-of-work?id=eyJpdiI6IjVlUDhKTGJScGZKZWkwQXZWZHFlc0E9PSIsInZhbHVlIjoiZldQd29qY0loUEFlcU5PUTV2Y2t6Zz09IiwibWFjIjoiZjc1YjdmYTQxZTRkYmZmOTBjZTBjZGRhZGI2Zjc1OTA5OWI0Y2Q5Y2JlZDJmYmJjYTMxZDJkNzUwMzEwMjE3NyIsInRhZyI6IiJ9"
+                target="_blank" rel="noopener noreferrer" class="standards-link-item">
+                <i data-lucide="calendar" style="width: 14px; height: 14px;"></i>
+                <span>Program of work</span>
+                <i data-lucide="external-link" class="link-ext"></i>
+              </a>
+              <a href="https://standards.bis.gov.in/website/strategic-roadmaps" target="_blank"
+                rel="noopener noreferrer" class="standards-link-item">
+                <i data-lucide="map" style="width: 14px; height: 14px;"></i>
+                <span>Strategic Roadmaps</span>
+                <i data-lucide="external-link" class="link-ext"></i>
+              </a>
+              <a href="https://www.bis.gov.in/wp-content/uploads/2022/12/Revised-SFM.pdf" target="_blank"
+                rel="noopener noreferrer" class="standards-link-item pdf-item">
+                <i data-lucide="file-text" style="width: 14px; height: 14px;"></i>
+                <span>Standards Formulation Manual 2022</span>
+                <span class="file-tag">PDF</span>
+              </a>
+              <a href="https://www.bis.gov.in/wp-content/uploads/2024/06/Handbook-for-TC-Members.pdf" target="_blank"
+                rel="noopener noreferrer" class="standards-link-item pdf-item">
+                <i data-lucide="file-text" style="width: 14px; height: 14px;"></i>
+                <span>Handbook for TC Members</span>
+                <span class="file-tag">PDF</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <h1 class="hero-headline" id="heroHeadline" data-i18n="headline">
+        Find the right Indian Standard
+      </h1>
+      <p class="hero-subheading" id="heroSubheading" data-i18n="subheading">
+        Enabling faster, more accurate procurement by connecting every specification to the right Indian Standard —
+        automatically.
+      </p>
+
+      <!-- Two Primary Options (Publish Tender & Join as Vendor) -->
+      <div class="hero-options-grid" id="heroOptionsGrid">
+        <!-- Option 1: Publish Tender (Opens dedicated Procurement Officials Portal) -->
+        <a href="procurement.html" class="portal-option-card tender-card" id="optPublishTender"
+          style="text-decoration: none;">
+          <div class="option-icon-badge blue">
+            <i data-lucide="file-plus-2" style="width: 32px; height: 32px;"></i>
+          </div>
+          <div class="option-text">
+            <div class="option-tag blue" data-i18n="publish_tender_tag">Procurement & Tenders</div>
+            <h3 class="option-title" data-i18n="publish_tender_title">Publish Tender</h3>
+            <p class="option-description" data-i18n="publish_tender_desc">
+              Draft technical specifications, identify applicable Indian Standards (BIS), check mandatory QCOs, and
+              generate GeM-ready clauses.
+            </p>
+            <div class="option-action-link blue">
+              <span data-i18n="publish_tender_action">Open Procurement Portal</span>
+              <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+            </div>
+          </div>
+        </a>
+
+        <!-- Option 2: Join as a Vendor -->
+        <div class="portal-option-card vendor-card" id="optJoinVendor" role="button" tabindex="0">
+          <div class="option-icon-badge emerald">
+            <i data-lucide="store" style="width: 32px; height: 32px;"></i>
+          </div>
+          <div class="option-text">
+            <div class="option-tag emerald" data-i18n="join_vendor_tag">Manufacturers & OEMs</div>
+            <h3 class="option-title" data-i18n="join_vendor_title">Join as a Vendor</h3>
+            <p class="option-description" data-i18n="join_vendor_desc">
+              Register your BIS License (ISI Mark / CRS / Hallmarking), verify statutory compliance, and connect with
+              active government tenders.
+            </p>
+            <div class="option-action-link emerald">
+              <span data-i18n="join_vendor_action">Register as Vendor</span>
+              <i data-lucide="arrow-right" style="width: 16px; height: 16px;"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Outdated Standards Alert (if legacy standard detected) -->
+    <div id="deprecatedAlertsContainer"></div>
+
+    <!-- Recommendations Output Section -->
+    <section class="results-section" id="resultsSection">
+      <div class="results-header-bar" id="resultsHeaderBar" style="display: none;">
+        <h2 class="results-count-title">
+          <span id="resultsTitle">Applicable Indian Standards</span>
+          <span class="results-count-badge" id="resultsCount">0 Standards</span>
+        </h2>
+      </div>
+
+      <!-- Injected by JavaScript -->
+      <div class="standards-grid" id="resultsContainer"></div>
+    </section>
+
+  </main>
+
+  <!-- Comprehensive Official Government of India Footer -->
+  <footer class="gov-portal-footer">
+    <!-- Footer Mission & Purpose Banner -->
+    <div class="footer-purpose-strip">
+      <div class="footer-container">
+        <div class="purpose-card">
+          <div class="purpose-icon-box">
+            <i data-lucide="shield-check" style="width: 24px; height: 24px; color: var(--brand-blue);"></i>
+          </div>
+          <div>
+            <h4 class="purpose-title">What is the Purpose of IS-Match?</h4>
+            <p class="purpose-desc">
+              IS-Match is an authoritative sovereign decision-support platform established under the <strong>Ministry of
+                Consumer Affairs, Food & Public Distribution</strong> in institutional coordination with the
+              <strong>Bureau of Indian Standards (BIS)</strong> and the <strong>Government e-Marketplace (GeM)</strong>.
+              Its statutory purpose is to empower procurement officials across Central Ministries, Defence
+              Establishments, State Governments, and PSUs to automatically identify, cross-reference, and mandate
+              applicable Indian Standards (BIS) and Central Quality Control Orders (QCOs) in tender
+              specifications—ensuring zero sub-standard procurement, total legal compliance under Section 16 of the BIS
+              Act, 2016, and national safety assurance.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Footer Columns -->
+    <div class="footer-main-section">
+      <div class="footer-container">
+        <div class="footer-columns-grid">
+          <!-- Column 1: Government Portals -->
+          <div class="footer-col">
+            <h4 class="footer-col-heading">Official Portals</h4>
+            <ul class="footer-links-list">
+              <li><a href="https://www.bis.gov.in" target="_blank" rel="noopener noreferrer"><i
+                    data-lucide="external-link" style="width: 12px; height: 12px;"></i> Bureau of Indian Standards
+                  (BIS)</a></li>
+              <li><a href="https://gem.gov.in" target="_blank" rel="noopener noreferrer"><i data-lucide="external-link"
+                    style="width: 12px; height: 12px;"></i> Government e-Marketplace (GeM)</a></li>
+              <li><a href="https://eprocure.gov.in/eprocure/app" target="_blank" rel="noopener noreferrer"><i
+                    data-lucide="external-link" style="width: 12px; height: 12px;"></i> Central Public Procurement
+                  (CPPP)</a></li>
+              <li><a href="https://www.india.gov.in" target="_blank" rel="noopener noreferrer"><i
+                    data-lucide="external-link" style="width: 12px; height: 12px;"></i> National Portal of India
+                  (india.gov.in)</a></li>
+              <li><a href="https://dpiit.gov.in" target="_blank" rel="noopener noreferrer"><i
+                    data-lucide="external-link" style="width: 12px; height: 12px;"></i> DPIIT (Quality Control
+                  Orders)</a></li>
+              <li><a href="https://meity.gov.in" target="_blank" rel="noopener noreferrer"><i
+                    data-lucide="external-link" style="width: 12px; height: 12px;"></i> MeitY (Electronics CRS
+                  Scheme)</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 2: Public Procurement & Standards Resources -->
+          <div class="footer-col">
+            <h4 class="footer-col-heading">Procurement & Standards</h4>
+            <ul class="footer-links-list">
+              <li><a href="https://standardsbis.bsbedge.com/" target="_blank" rel="noopener noreferrer"><i
+                    data-lucide="download" style="width: 12px; height: 12px;"></i> Download Indian Standards</a></li>
+              <li><a href="https://standards.bis.gov.in/website/published-standards/department-wise" target="_blank"
+                  rel="noopener noreferrer"><i data-lucide="file-check" style="width: 12px; height: 12px;"></i>
+                  Department-wise Standards</a></li>
+              <li><a href="https://www.bis.gov.in/product-certification/products-under-compulsory-certification/"
+                  target="_blank" rel="noopener noreferrer"><i data-lucide="alert-triangle"
+                    style="width: 12px; height: 12px;"></i> Mandatory QCO Notification List</a></li>
+              <li><a href="procurement.html"><i data-lucide="file-text" style="width: 12px; height: 12px;"></i> Publish
+                  Tender (Officer Portal)</a></li>
+              <li><a href="#" onclick="document.getElementById('optJoinVendor').click(); return false;"><i
+                    data-lucide="store" style="width: 12px; height: 12px;"></i> Vendor BIS License Registration</a></li>
+              <li><a href="https://www.bis.gov.in/wp-content/uploads/2022/12/Revised-SFM.pdf" target="_blank"
+                  rel="noopener noreferrer"><i data-lucide="book-open" style="width: 12px; height: 12px;"></i> Standards
+                  Formulation Manual</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Website Policies & Governance -->
+          <div class="footer-col">
+            <h4 class="footer-col-heading">Website Policies</h4>
+            <ul class="footer-links-list">
+              <li><a href="#" onclick="showPolicyNotice('Terms of Use'); return false;">Terms of Use & Conditions</a>
+              </li>
+              <li><a href="#" onclick="showPolicyNotice('Privacy Policy'); return false;">Privacy & Data Protection
+                  Policy</a></li>
+              <li><a href="#" onclick="showPolicyNotice('Hyperlinking Policy'); return false;">Hyperlinking Policy</a>
+              </li>
+              <li><a href="#" onclick="showPolicyNotice('Copyright Policy'); return false;">Copyright Policy</a></li>
+              <li><a href="#" onclick="showPolicyNotice('Disclaimer'); return false;">Statutory Disclaimer & BIS Act</a>
+              </li>
+              <li><a href="#" onclick="showPolicyNotice('Accessibility'); return false;">Accessibility Statement (GIGW
+                  3.0)</a></li>
+              <li><a href="#" onclick="showPolicyNotice('Web Information Manager'); return false;">Web Information
+                  Manager (WIM)</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 4: Official Contact & Helpdesk -->
+          <div class="footer-col">
+            <h4 class="footer-col-heading">Official Contact & Helpdesk</h4>
+            <div class="contact-info-block">
+              <div class="contact-line">
+                <i data-lucide="building"
+                  style="width: 15px; height: 15px; color: var(--brand-blue); flex-shrink: 0; margin-top: 0.15rem;"></i>
+                <span><strong>Bureau of Indian Standards (Headquarters)</strong><br>Manak Bhavan, 9 Bahadur Shah Zafar
+                  Marg, New Delhi - 110002</span>
+              </div>
+              <div class="contact-line">
+                <i data-lucide="phone-call"
+                  style="width: 15px; height: 15px; color: var(--brand-emerald); flex-shrink: 0;"></i>
+                <span><strong>Toll-Free Helpline:</strong><br><a href="tel:1800110001"
+                    style="color: var(--brand-emerald); font-weight: 700;">1800-11-0001</a> (BIS National)<br><a
+                    href="tel:18004193436" style="color: var(--brand-blue); font-weight: 700;">1800-419-3436</a> (GeM
+                  Helpdesk)</span>
+              </div>
+              <div class="contact-line">
+                <i data-lucide="mail"
+                  style="width: 15px; height: 15px; color: var(--brand-saffron); flex-shrink: 0;"></i>
+                <span><strong>Email Support:</strong><br><a
+                    href="mailto:support.standards@bis.gov.in">support.standards@bis.gov.in</a><br><a
+                    href="mailto:helpdesk-gem@gov.in">helpdesk-gem@gov.in</a></span>
+              </div>
+              <div class="contact-line">
+                <i data-lucide="clock"
+                  style="width: 15px; height: 15px; color: var(--text-tertiary); flex-shrink: 0;"></i>
+                <span>Mon – Sat: 09:00 AM to 06:00 PM IST (Except National Holidays)</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sovereign Bottom Bar -->
+    <div class="footer-bottom-bar">
+      <div class="footer-container bottom-container">
+        <div class="sovereign-audit-info">
+          <div class="emblem-mini-box">
+            <svg viewBox="0 0 120 160" width="22" height="28" fill="currentColor">
+              <path
+                d="M60 12 C55 12 51 16 51 21 C51 23 52 25 54 26 C51 28 48 31 48 35 C48 39 51 41 53 43 C50 45 47 49 47 54 C47 60 52 64 57 65 L57 68 L63 68 L63 65 C68 64 73 60 73 54 C73 49 70 45 67 43 C69 41 72 39 72 35 C72 31 69 28 66 26 C68 25 69 23 69 21 C69 16 65 12 60 12 Z" />
+              <rect x="16" y="89" width="88" height="6" rx="2" />
+              <circle cx="60" cy="107" r="11" stroke="currentColor" stroke-width="2.5" fill="none" />
+              <rect x="12" y="119" width="96" height="5" rx="1.5" />
+              <text x="60" y="150" font-size="11" font-weight="900" text-anchor="middle">सत्यमेव जयते</text>
+            </svg>
+          </div>
+          <div>
+            <div style="font-weight: 600; color: var(--text-primary);">
+              Content Owned and Maintained by Bureau of Indian Standards (BIS), Ministry of Consumer Affairs, Government
+              of India
+            </div>
+            <div style="font-size: 0.74rem; color: var(--text-tertiary); margin-top: 0.2rem;">
+              Developed for National e-Procurement Ecosystem &bull; Certified GIGW 3.0 Compliant &bull; Security Audited
+              by CERT-In Empanelled Agency &bull; Last Updated: 02 Sep 2026
+            </div>
+          </div>
+        </div>
+
+        <div class="gov-badges-row">
+          <span class="gov-audit-badge">GIGW 3.0</span>
+          <span class="gov-audit-badge">STQC Certified</span>
+          <span class="gov-audit-badge">Digital India</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Need Help? Support Widget -->
+  <button type="button" class="gov-floating-help-btn" id="btnFloatingHelp" onclick="openHelpModal()"
+    title="Click for Official Helpdesk, Contacts & Purpose">
+    <i data-lucide="life-buoy" style="width: 17px; height: 17px;"></i>
+    <span>Need Help?</span>
+    <span class="help-pulse-dot"></span>
+  </button>
+
+  <!-- Official Helpdesk & Support Modal -->
+  <div class="modal-backdrop" id="helpModal">
+    <div class="modal-window" style="max-width: 650px;">
+      <div class="modal-header">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <div class="modal-icon-badge blue">
+            <i data-lucide="life-buoy" style="width: 20px; height: 20px;"></i>
+          </div>
+          <div>
+            <h3 class="modal-title">National Helpdesk & Guidelines</h3>
+            <span class="modal-sub">Bureau of Indian Standards & GeM Public Procurement Advisory</span>
+          </div>
+        </div>
+        <button class="btn-close-modal modal-closer" aria-label="Close modal">
+          <i data-lucide="x" style="width: 16px; height: 16px;"></i>
+        </button>
+      </div>
+
+      <div class="modal-body" style="padding: 1.25rem 1.5rem;">
+        <!-- Modal Tabs -->
+        <div class="spec-method-tabs" style="margin-bottom: 1.25rem;">
+          <button type="button" class="spec-method-btn active" id="tabHelpContact" onclick="switchHelpTab('contact')">
+            <i data-lucide="phone-call" style="width: 15px; height: 15px;"></i>
+            <span>Helpline & Contact</span>
+          </button>
+          <button type="button" class="spec-method-btn" id="tabHelpPurpose" onclick="switchHelpTab('purpose')">
+            <i data-lucide="compass" style="width: 15px; height: 15px;"></i>
+            <span>What is the Purpose?</span>
+          </button>
+          <button type="button" class="spec-method-btn" id="tabHelpFaq" onclick="switchHelpTab('faq')">
+            <i data-lucide="help-circle" style="width: 15px; height: 15px;"></i>
+            <span>FAQs</span>
+          </button>
+        </div>
+
+        <!-- Panel 1: Helpline & Contact -->
+        <div id="panelHelpContact">
+          <div style="display: flex; flex-direction: column; gap: 0.9rem;">
+            <div
+              style="background: rgba(37, 99, 235, 0.06); border: 1px solid rgba(37, 99, 235, 0.2); border-radius: var(--radius-md); padding: 1rem;">
+              <h5
+                style="font-family: var(--font-heading); font-size: 0.92rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.4rem; display: flex; align-items: center; gap: 0.4rem;">
+                <i data-lucide="phone-call" style="width: 16px; height: 16px; color: var(--brand-blue);"></i>
+                Toll-Free National Helplines
+              </h5>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; margin-top: 0.5rem;">
+                <div>
+                  <div
+                    style="font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; font-weight: 600;">
+                    BIS Standards Helpline:</div>
+                  <div style="font-size: 1.15rem; font-weight: 800; color: var(--brand-blue);"><a href="tel:1800110001"
+                      style="text-decoration: none; color: inherit;">1800-11-0001</a></div>
+                  <div style="font-size: 0.72rem; color: var(--text-tertiary);">09:00 AM – 06:00 PM (Mon–Sat)</div>
+                </div>
+                <div>
+                  <div
+                    style="font-size: 0.75rem; color: var(--text-secondary); text-transform: uppercase; font-weight: 600;">
+                    GeM Procurement Desk:</div>
+                  <div style="font-size: 1.15rem; font-weight: 800; color: var(--brand-emerald);"><a
+                      href="tel:18004193436" style="text-decoration: none; color: inherit;">1800-419-3436</a></div>
+                  <div style="font-size: 0.72rem; color: var(--text-tertiary);">24x7 Inbound Support Desk</div>
+                </div>
+              </div>
+            </div>
+
+            <div
+              style="background: var(--bg-surface-elevated); border: 1px solid var(--border-medium); border-radius: var(--radius-md); padding: 1rem;">
+              <h5
+                style="font-family: var(--font-heading); font-size: 0.88rem; font-weight: 700; color: var(--text-primary); margin-bottom: 0.4rem;">
+                Official Communication Channels</h5>
+              <div style="font-size: 0.82rem; color: var(--text-secondary); line-height: 1.6;">
+                <div><strong>Standardization Inquiries:</strong> <a href="mailto:support.standards@bis.gov.in"
+                    style="color: var(--brand-blue);">support.standards@bis.gov.in</a></div>
+                <div><strong>GeM Technical Integration:</strong> <a href="mailto:helpdesk-gem@gov.in"
+                    style="color: var(--brand-blue);">helpdesk-gem@gov.in</a></div>
+                <div><strong>Physical Address:</strong> Directorate General, Bureau of Indian Standards, Manak Bhavan, 9
+                  Bahadur Shah Zafar Marg, New Delhi - 110002</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 2: What is the Purpose? -->
+        <div id="panelHelpPurpose" style="display: none;">
+          <div
+            style="display: flex; flex-direction: column; gap: 0.85rem; font-size: 0.84rem; color: var(--text-secondary); line-height: 1.55;">
+            <div
+              style="background: var(--bg-surface); padding: 1rem; border-radius: var(--radius-md); border-left: 3px solid var(--brand-blue);">
+              <strong style="color: var(--text-primary); font-size: 0.92rem;">1. Solving Technical Specification
+                Ambiguity:</strong>
+              <p style="margin-top: 0.25rem;">
+                Tender Inviting Authorities (TIAs) often specify generic or outdated product descriptions, leading to
+                vendor disputes or procurement of sub-standard products. IS-Match bridges this gap by automatically
+                converting natural language requirements into exact, legally enforceable Indian Standards.
+              </p>
+            </div>
+            <div
+              style="background: var(--bg-surface); padding: 1rem; border-radius: var(--radius-md); border-left: 3px solid var(--brand-saffron);">
+              <strong style="color: var(--text-primary); font-size: 0.92rem;">2. Enforcing Central Quality Control
+                Orders (QCOs):</strong>
+              <p style="margin-top: 0.25rem;">
+                Under Section 16 of the Bureau of Indian Standards Act, 2016, products covered under mandatory QCOs
+                cannot be sold, stored, or distributed in India without valid BIS certification (ISI Mark / CRS).
+                IS-Match alerts officials before tender publication to mandate BIS licenses, preventing illegal supply.
+              </p>
+            </div>
+            <div
+              style="background: var(--bg-surface); padding: 1rem; border-radius: var(--radius-md); border-left: 3px solid var(--brand-emerald);">
+              <strong style="color: var(--text-primary); font-size: 0.92rem;">3. Seamless GeM & CPPP Clause
+                Generation:</strong>
+              <p style="margin-top: 0.25rem;">
+                Provides copy-paste and downloadable tender technical schedules formatted to GeM Pre-Qualification
+                Criteria (PQC), citing latest reaffirmed editions and published amendments.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Panel 3: FAQs -->
+        <div id="panelHelpFaq" style="display: none;">
+          <div style="display: flex; flex-direction: column; gap: 0.75rem; font-size: 0.83rem;">
+            <details
+              style="background: var(--bg-surface); padding: 0.75rem 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+              <summary style="font-weight: 700; color: var(--text-primary); cursor: pointer;">How does IS-Match
+                recommend Indian Standards?</summary>
+              <p style="margin-top: 0.4rem; color: var(--text-secondary); line-height: 1.45;">
+                The platform utilizes a semantic recommendation engine trained on the Bureau of Indian Standards (BIS)
+                technical database. It parses material composition, operating limits, and technical keywords to match
+                exact standards, active amendments, and testing references.
+              </p>
+            </details>
+            <details
+              style="background: var(--bg-surface); padding: 0.75rem 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+              <summary style="font-weight: 700; color: var(--text-primary); cursor: pointer;">Does IS-Match certify
+                vendors or issue licenses?</summary>
+              <p style="margin-top: 0.4rem; color: var(--text-secondary); line-height: 1.45;">
+                No. The Bureau of Indian Standards (BIS) is the sole statutory certifying body. IS-Match references open
+                public Gazette data to advise officials on statutory tender requirements and enables vendors to link
+                existing valid licenses.
+              </p>
+            </details>
+            <details
+              style="background: var(--bg-surface); padding: 0.75rem 1rem; border-radius: var(--radius-md); border: 1px solid var(--border-subtle);">
+              <summary style="font-weight: 700; color: var(--text-primary); cursor: pointer;">Can procurement officials
+                download ready tender documents?</summary>
+              <p style="margin-top: 0.4rem; color: var(--text-secondary); line-height: 1.45;">
+                Yes. In the Procurement Portal (<a href="procurement.html"
+                  style="color: var(--brand-blue);">procurement.html</a>), officials can generate and download a
+                complete Notice Inviting Tender (NIT) schedule pack with official TIA credentials and GeM-ready
+                technical clauses.
+              </p>
+            </details>
+          </div>
+        </div>
+
+        <div
+          style="display: flex; justify-content: flex-end; margin-top: 1.25rem; border-top: 1px solid var(--border-subtle); padding-top: 0.85rem;">
+          <button type="button" class="btn btn-secondary modal-closer">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Interactive Standards Network Graph Modal -->
+  <div class="modal-backdrop" id="graphModal">
+    <div class="modal-window">
+      <div class="modal-header">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <div class="modal-icon-badge">
+            <i data-lucide="git-fork" style="width: 18px; height: 18px;"></i>
+          </div>
+          <div>
+            <h3 class="modal-title" id="graphModalTitle">Standards Network Graph</h3>
+            <span class="modal-sub">Cross-referenced Normative, Test Methods, Safety & Installation Standards</span>
+          </div>
+        </div>
+        <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <button class="btn btn-secondary btn-sm" onclick="resetGraphView()">
+            <i data-lucide="rotate-ccw" style="width: 13px; height: 13px;"></i>
+            <span>Reset</span>
+          </button>
+          <button class="btn-close-modal modal-closer" aria-label="Close modal">
+            <i data-lucide="x" style="width: 16px; height: 16px;"></i>
+          </button>
+        </div>
+      </div>
+      <div class="modal-body" style="padding: 1rem;">
+        <div class="graph-canvas-container">
+          <canvas id="graphCanvas"></canvas>
+          <div class="graph-legend">
+            <div class="legend-item"><span class="legend-dot" style="background: #2563eb;"></span><span>Primary Product
+                Standard</span></div>
+            <div class="legend-item"><span class="legend-dot" style="background: #7c3aed;"></span><span>Mandatory Test
+                Method</span></div>
+            <div class="legend-item"><span class="legend-dot" style="background: #059669;"></span><span>Normative
+                Reference</span></div>
+            <div class="legend-item"><span class="legend-dot" style="background: #d97706;"></span><span>Safety &
+                Detailing Code</span></div>
+            <div class="legend-item"><span class="legend-dot" style="background: #0891b2;"></span><span>Installation
+                Standard</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Amendments History Modal -->
+  <div class="modal-backdrop" id="amendmentsModal">
+    <div class="modal-window" style="max-width: 720px;">
+      <div class="modal-header">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <div class="modal-icon-badge purple">
+            <i data-lucide="history" style="width: 18px; height: 18px;"></i>
+          </div>
+          <div>
+            <h3 class="modal-title" id="amendmentsModalTitle">Amendments & Revisions</h3>
+            <span class="modal-sub">Official BIS Gazette Revisions & Technical Amendments</span>
+          </div>
+        </div>
+        <button class="btn-close-modal modal-closer" aria-label="Close modal">
+          <i data-lucide="x" style="width: 16px; height: 16px;"></i>
+        </button>
+      </div>
+      <div class="modal-body" id="amendmentsList">
+        <!-- Injected via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Tender Specification Pack Modal -->
+  <div class="modal-backdrop" id="tenderModal">
+    <div class="modal-window" style="max-width: 860px;">
+      <div class="modal-header">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <div class="modal-icon-badge emerald">
+            <i data-lucide="file-badge" style="width: 18px; height: 18px;"></i>
+          </div>
+          <div>
+            <h3 class="modal-title">Compiled Tender Specification Clause</h3>
+            <span class="modal-sub">Ready to paste into GeM or Notice Inviting Tender (NIT) portal</span>
+          </div>
+        </div>
+        <button class="btn-close-modal modal-closer" aria-label="Close modal">
+          <i data-lucide="x" style="width: 16px; height: 16px;"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre class="tender-doc-preview" id="compiledTenderDoc"></pre>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary"
+          onclick="navigator.clipboard.writeText(document.getElementById('compiledTenderDoc').textContent).then(() => showToast('Full Tender Schedule Copied!'))">
+          <i data-lucide="copy" style="width: 15px; height: 15px;"></i>
+          <span>Copy Clause</span>
+        </button>
+        <button class="btn btn-emerald" onclick="downloadTenderDoc()">
+          <i data-lucide="download" style="width: 15px; height: 15px;"></i>
+          <span>Download (.txt)</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating Tender Cart Counter -->
+  <div class="tender-cart-floater" id="tenderCartFloater" style="display: none;"
+    title="Open Compiled Tender Specification Pack">
+    <i data-lucide="file-badge" style="width: 18px; height: 18px;"></i>
+    <span>Tender Spec Pack</span>
+    <span class="cart-counter" id="tenderCartCount">0</span>
+  </div>
+
+  <!-- Login Modal (For Procurement Officials & Vendors) -->
+  <div class="modal-backdrop" id="loginModal">
+    <div class="modal-window" style="max-width: 500px;">
+      <div class="modal-header">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <div class="modal-icon-badge blue">
+            <i data-lucide="log-in" style="width: 18px; height: 18px;"></i>
+          </div>
+          <div>
+            <h3 class="modal-title">Official & Vendor Login</h3>
+            <span class="modal-sub">National e-Procurement Portal Single Sign-On (SSO)</span>
+          </div>
+        </div>
+        <button class="btn-close-modal modal-closer" aria-label="Close modal">
+          <i data-lucide="x" style="width: 16px; height: 16px;"></i>
+        </button>
+      </div>
+      <div class="modal-body" style="padding: 1.5rem;">
+        <div class="spec-method-tabs" style="margin-bottom: 1.25rem;">
+          <button type="button" class="spec-method-btn active" id="tabOfficialLogin"
+            onclick="switchLoginTab('official')">
+            <i data-lucide="user-check" style="width: 15px; height: 15px;"></i>
+            <span>Govt Official</span>
+          </button>
+          <button type="button" class="spec-method-btn" id="tabVendorLogin" onclick="switchLoginTab('vendor')">
+            <i data-lucide="store" style="width: 15px; height: 15px;"></i>
+            <span>Vendor / OEM</span>
+          </button>
+        </div>
+
+        <!-- Official Login Form -->
+        <form id="officialLoginForm" onsubmit="handleLoginSubmit(event, 'official')">
+          <div style="display: flex; flex-direction: column; gap: 0.9rem;">
+            <div>
+              <label class="form-label" for="loginGovEmail">Government Email / Parichay ID</label>
+              <input type="email" id="loginGovEmail" class="form-input" placeholder="officer@gov.in or officer@nic.in"
+                required>
+            </div>
+            <div>
+              <label class="form-label" for="loginGovPassword">Password / Security PIN</label>
+              <input type="password" id="loginGovPassword" class="form-input" placeholder="••••••••" required>
+            </div>
+            <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem;">
+              <label
+                style="display: flex; align-items: center; gap: 0.4rem; cursor: pointer; color: var(--text-secondary);">
+                <input type="checkbox"> Remember on this device
+              </label>
+              <a href="#" style="color: var(--brand-blue); text-decoration: none;">Forgot PIN?</a>
+            </div>
+            <button type="submit" class="btn btn-primary"
+              style="width: 100%; justify-content: center; margin-top: 0.5rem;">
+              <i data-lucide="shield-check" style="width: 16px; height: 16px;"></i>
+              <span>Sign In with Parichay / NIC SSO</span>
+            </button>
+          </div>
+        </form>
+
+        <!-- Vendor Login Form -->
+        <form id="vendorLoginForm" style="display: none;" onsubmit="handleLoginSubmit(event, 'vendor')">
+          <div style="display: flex; flex-direction: column; gap: 0.9rem;">
+            <div>
+              <label class="form-label" for="loginVendorId">GeM Seller ID / GSTIN / PAN</label>
+              <input type="text" id="loginVendorId" class="form-input"
+                placeholder="e.g. 07AAAAA0000A1Z5 or GeM Seller ID" required>
+            </div>
+            <div>
+              <label class="form-label" for="loginVendorPassword">Password / OTP</label>
+              <input type="password" id="loginVendorPassword" class="form-input" placeholder="••••••••" required>
+            </div>
+            <button type="submit" class="btn btn-emerald"
+              style="width: 100%; justify-content: center; margin-top: 0.5rem;">
+              <i data-lucide="check-circle-2" style="width: 16px; height: 16px;"></i>
+              <span>Sign In to Vendor Portal</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Vendor & OEM Joining Modal -->
+  <div class="modal-backdrop" id="vendorModal">
+    <div class="modal-window" style="max-width: 620px;">
+      <div class="modal-header">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <div class="modal-icon-badge emerald">
+            <i data-lucide="store" style="width: 18px; height: 18px;"></i>
+          </div>
+          <div>
+            <h3 class="modal-title">Vendor & OEM Registration</h3>
+            <span class="modal-sub">Link your BIS License & QCO compliance to government tenders</span>
+          </div>
+        </div>
+        <button class="btn-close-modal modal-closer" aria-label="Close modal">
+          <i data-lucide="x" style="width: 16px; height: 16px;"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form id="vendorForm" onsubmit="handleVendorSubmit(event)">
+          <div style="display: flex; flex-direction: column; gap: 1rem;">
+            <!-- Statutory Certification Advisory -->
+            <div
+              style="background: rgba(16, 185, 129, 0.08); border: 1px solid rgba(16, 185, 129, 0.3); padding: 0.85rem 1rem; border-radius: var(--radius-md); display: flex; gap: 0.75rem;">
+              <i data-lucide="shield-check"
+                style="width: 20px; height: 20px; color: var(--brand-emerald); flex-shrink: 0; margin-top: 0.1rem;"></i>
+              <div>
+                <strong style="color: var(--text-primary); font-size: 0.84rem;">Certification Mandate for
+                  Vendors:</strong>
+                <p style="margin-top: 0.2rem; font-size: 0.78rem; color: var(--text-secondary); line-height: 1.45;">
+                  Vendors must hold an actual, active BIS license/certificate (ISI Mark / CRS / Hallmarking) for the
+                  specific product category before legally bidding or supplying. This system specifies statutory QCO
+                  requirements mandated in public tenders.
+                </p>
+              </div>
+            </div>
+
+            <div>
+              <label class="form-label" for="vName">Manufacturer / Company Name</label>
+              <input type="text" id="vName" class="form-input" placeholder="e.g. Apex Safety Equipment Pvt Ltd"
+                required>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+              <div>
+                <label class="form-label" for="vScheme">BIS Certification Scheme</label>
+                <select id="vScheme" class="form-select" required>
+                  <option value="Scheme-I">BIS Scheme-I (ISI Mark)</option>
+                  <option value="Scheme-II">BIS Scheme-II (CRS - MeitY)</option>
+                  <option value="Hallmarking">BIS Hallmarking</option>
+                  <option value="BEE">BEE Star Rating</option>
+                </select>
+              </div>
+              <div>
+                <label class="form-label" for="vLicense">BIS License / CML / R-Number</label>
+                <input type="text" id="vLicense" class="form-input" placeholder="e.g. CM/L-8420194 or R-41002891"
+                  required>
+              </div>
+            </div>
+            <div>
+              <label class="form-label" for="vStandard">Applicable Indian Standard(s)</label>
+              <input type="text" id="vStandard" class="form-input" placeholder="e.g. IS 2925, IS 7098 (Part 2), IS 269"
+                required>
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+              <div>
+                <label class="form-label" for="vGst">GSTIN / GeM Seller ID</label>
+                <input type="text" id="vGst" class="form-input" placeholder="e.g. 07AAAAA0000A1Z5" required>
+              </div>
+              <div>
+                <label class="form-label" for="vEmail">Official Contact Email</label>
+                <input type="email" id="vEmail" class="form-input" placeholder="procurement@company.com" required>
+              </div>
+            </div>
+            <div
+              style="background: var(--bg-surface-elevated); padding: 0.75rem 1rem; border-radius: var(--radius-md); font-size: 0.78rem; color: var(--text-secondary); border: 1px solid var(--border-subtle); display: flex; align-items: center; gap: 0.5rem;">
+              <i data-lucide="info" style="width: 16px; height: 16px; color: var(--brand-blue); flex-shrink: 0;"></i>
+              <span>Registered vendors are automatically suggested to procurement officials when tenders referencing
+                these standards are created.</span>
+            </div>
+            <div style="display: flex; justify-content: flex-end; gap: 0.5rem; margin-top: 0.5rem;">
+              <button type="button" class="btn btn-secondary modal-closer">Cancel</button>
+              <button type="submit" class="btn btn-emerald">
+                <i data-lucide="badge-check" style="width: 16px; height: 16px;"></i>
+                <span>Register & Verify BIS License</span>
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Publish Tender Modal (Opens as a Modal Popup like Join as a Vendor) -->
+  <div class="modal-backdrop" id="publishTenderModal">
+    <div class="modal-window" style="max-width: 680px;">
+      <div class="modal-header">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <div class="modal-icon-badge blue">
+            <i data-lucide="file-plus-2" style="width: 18px; height: 18px;"></i>
+          </div>
+          <div>
+            <h3 class="modal-title">Publish Tender: Specification & Standards Finder</h3>
+            <span class="modal-sub">Identify applicable Indian Standards (BIS) & mandatory Quality Control Orders</span>
+          </div>
+        </div>
+        <button class="btn-close-modal modal-closer" aria-label="Close modal">
+          <i data-lucide="x" style="width: 16px; height: 16px;"></i>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div style="display: flex; flex-direction: column; gap: 1rem;">
+          <div>
+            <label class="form-label" for="queryInput">Product Description & Technical Specifications</label>
+            <textarea id="queryInput" class="form-input" rows="3"
+              style="min-height: 80px; resize: vertical; line-height: 1.5; font-size: 0.95rem;"
+              placeholder="Describe what you are procuring (e.g., industrial safety helmets for factory workers, 33kV XLPE power cables, 53 grade cement)..."></textarea>
+          </div>
+
+          <div
+            style="display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem;">
+            <button class="hero-mic-btn" id="micBtn" title="Voice Input" aria-label="Voice input" type="button">
+              <i data-lucide="mic" style="width: 15px; height: 15px;"></i>
+              <span>Voice Search</span>
+            </button>
+
+            <button class="doc-toggle-link" id="toggleDocModeBtn" type="button">
+              <i data-lucide="file-text" style="width: 14px; height: 14px;"></i>
+              <span>Or upload / paste tender document</span>
+            </button>
+          </div>
+
+          <!-- Collapsible Tender Document Drop Area -->
+          <div class="doc-upload-tray" id="docUploadTray" style="display: none;">
+            <div class="dropzone-box" id="dropzone">
+              <i data-lucide="upload-cloud" style="width: 24px; height: 24px; color: var(--brand-blue);"></i>
+              <span>Drag & drop tender PDF/TXT file, or paste text below</span>
+              <input type="file" id="docFileInput" style="display: none;" accept=".txt,.pdf,.doc,.docx">
+            </div>
+            <textarea id="tenderDocText" class="tender-tray-textarea"
+              placeholder="Paste full tender specification or Notice Inviting Tender (NIT) text here..."></textarea>
+            <div style="display: flex; justify-content: flex-end;">
+              <button class="btn btn-secondary btn-sm" id="analyzeDocBtn" type="button">
+                <i data-lucide="check-check" style="width: 14px; height: 14px;"></i>
+                <span>Analyze Document</span>
+              </button>
+            </div>
+          </div>
+
+          <div
+            style="display: flex; justify-content: flex-end; gap: 0.5rem; margin-top: 0.5rem; border-top: 1px solid var(--border-subtle); padding-top: 1rem;">
+            <button type="button" class="btn btn-secondary modal-closer">Cancel</button>
+            <button class="btn btn-primary" id="findStandardsBtn" type="button">
+              <i data-lucide="search" style="width: 16px; height: 16px;"></i>
+              <span>Find Applicable Standards</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tender Utility Modal (For Search Tender, Tender Calendar, Recent Tenders - Zero Sample Data) -->
+  <div class="modal-backdrop" id="tenderUtilityModal">
+    <div class="modal-window" style="max-width: 580px;">
+      <div class="modal-header">
+        <div style="display: flex; align-items: center; gap: 0.75rem;">
+          <div class="modal-icon-badge blue" id="utilityModalBadge">
+            <i data-lucide="file-search" id="utilityModalIcon" style="width: 18px; height: 18px;"></i>
+          </div>
+          <div>
+            <h3 class="modal-title" id="utilityModalTitle">Tender Portal</h3>
+            <span class="modal-sub" id="utilityModalSub">Central Public Procurement Portal (CPPP) & GeM
+              Integration</span>
+          </div>
+        </div>
+        <button class="btn-close-modal modal-closer" aria-label="Close modal">
+          <i data-lucide="x" style="width: 16px; height: 16px;"></i>
+        </button>
+      </div>
+      <div class="modal-body" id="utilityModalContent" style="padding: 1.5rem;">
+        <!-- Injected via JavaScript without any mock data -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="standards-data.js"></script>
+  <script src="app.js"></script>
+</body>
+
+</html>
